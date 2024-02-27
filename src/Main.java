@@ -1,6 +1,7 @@
 import models.Appointment;
 import models.Doctor;
 import models.Patient;
+import sections.MainMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class Main {
 
         while(true){
 
-            int selectedInput = 0;
+            int selectedInput = MainMenu.printMenu(menuItems, input);
 
             switch (selectedInput){
                 case 0:
