@@ -56,7 +56,31 @@ public class PatientMenu {
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
-        System.out.println("Update patients");
+        System.out.println("Enter the id in order to Update");
+        int id = input.nextInt();
+        Patient patientToUpdate = patients.get(id - 1);
+
+        boolean updateStatus = true;
+
+        while (updateStatus){
+            System.out.println("Enter new Name");
+            String newName = input.nextLine();
+            patientToUpdate.setName(newName);
+            input.nextLine();
+
+            System.out.println("Enter new Age");
+            int newAge = input.nextInt();
+            patientToUpdate.setAge(newAge);
+            input.nextLine();
+
+            System.out.println("Enter new Address");
+            String newAddress = input.nextLine();
+            patientToUpdate.setAddress(newAddress);
+
+            System.out.println("Patient updated successfully!");
+            updateStatus = false;
+        }
+        patients.stream().forEach(System.out::println);
     }
 
     private static void findPatientById(List<Patient> patients, Scanner input) {
