@@ -18,6 +18,51 @@ public class DoctorsMenu {
         doctorsMenuItems[4] = "(5) View All Doctors";
         doctorsMenuItems[5] = "(6) Exit";
 
+        while(true){
+
+            int selectedMenuItem = MainMenu.printMenu(doctorsMenuItems, input);
+
+            switch (selectedMenuItem){
+                case 0:
+                    addDoctors(doctors, input);
+                    break;
+                case 1:
+                    findDoctorById(doctors, input);
+                    break;
+                case 2:
+                    updateDoctor(doctors, input);
+                    break;
+                case 3:
+                    deleteDoctor(doctors, input);
+                    break;
+                case 4:
+                    viewAllDoctors(doctors);
+                    break;
+                case 5:
+                    return;
+            }
+        }
+
+    }
+
+    private static void viewAllDoctors(List<Doctor> doctors) {
+        System.out.println("View all doctors");
+    }
+
+    private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
+        System.out.println("Delete doctor");
+    }
+
+    private static void updateDoctor(List<Doctor> doctors, Scanner input) {
+        System.out.println("Update doctor");
+    }
+
+    private static void findDoctorById(List<Doctor> doctors, Scanner input) {
+        System.out.println("Find by id");
+    }
+
+    private static void addDoctors(List<Doctor> doctors, Scanner input) {
+        System.out.println("Add doctors");
     }
 
 }
