@@ -48,7 +48,11 @@ public class PatientMenu {
     }
 
     private static void deletePatient(List<Patient> patients, Scanner input) {
-        System.out.println("Delete patients");
+        System.out.println("Enter Patient id in order to Delete!");
+        int id = input.nextInt();
+        patients.stream().filter(patient -> patient.getId() == id).findFirst();
+        System.out.println("Patient has deleted!");
+        patients.stream().forEach(System.out::println);
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
