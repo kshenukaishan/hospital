@@ -17,6 +17,50 @@ public class PatientMenu {
         patientsMenuItems[4] = "(5) View All Patients";
         patientsMenuItems[5] = "(6) Exit";
 
+        while(true){
+            int selectedInput = MainMenu.printMenu(patientsMenuItems, input);
+
+            switch(selectedInput){
+                case 0:
+                    addPatients(patients, input);
+                    break;
+                case 1:
+                    findPatientById(patients, input);
+                    break;
+                case 2:
+                    updatePatient(patients, input);
+                    break;
+                case 3:
+                    deletePatient(patients, input);
+                    break;
+                case 4:
+                    viewAllPatients(patients);
+                    break;
+                case 5:
+                    return;
+            }
+        }
+
+    }
+
+    private static void viewAllPatients(List<Patient> patients) {
+        System.out.println("View all patients");
+    }
+
+    private static void deletePatient(List<Patient> patients, Scanner input) {
+        System.out.println("Delete patients");
+    }
+
+    private static void updatePatient(List<Patient> patients, Scanner input) {
+        System.out.println("Update patients");
+    }
+
+    private static void findPatientById(List<Patient> patients, Scanner input) {
+        System.out.println("Find patients");
+    }
+
+    private static void addPatients(List<Patient> patients, Scanner input) {
+        System.out.println("Add patients.");
     }
 
 }
