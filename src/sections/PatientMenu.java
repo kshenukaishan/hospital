@@ -60,7 +60,43 @@ public class PatientMenu {
     }
 
     private static void addPatients(List<Patient> patients, Scanner input) {
-        System.out.println("Add patients.");
+        boolean addStatus = true;
+        while (addStatus){
+
+            Patient patient = new Patient();
+            System.out.println("Enter patient id");
+            int id = input.nextInt();
+            patient.setId(id);
+            input.nextLine();
+
+            System.out.println("Enter patient name");
+            String name = input.nextLine();
+            patient.setName(name);
+
+            System.out.println("Enter patient age");
+            int age = input.nextInt();
+            patient.setAge(age);
+            input.nextLine();
+
+            System.out.println("Enter patient address");
+            String address = input.nextLine();
+            patient.setAddress(address);
+            patients.add(patient);
+
+            System.out.println("Patient added successfully!");
+
+            System.out.println("Need to add another patient?");
+            System.out.println("(1) Yes");
+            System.out.println("(2) No");
+            int answer = input.nextInt();
+
+            if (answer != 1) {
+                addStatus = false;
+            } else {
+                addStatus = true;
+            }
+        }
+        patients.stream().forEach(System.out::println);
     }
 
 }
