@@ -46,7 +46,7 @@ public class DoctorsMenu {
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
-        System.out.println("View all doctors");
+        doctors.stream().forEach(System.out::println);
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
