@@ -96,6 +96,47 @@ public class AppointmentMenu {
     }
 
     private static void addAppointment(List<Appointment> appointments, Scanner input) {
-        System.out.println("Add appointment");
+        boolean addStatus = true;
+
+        while(addStatus){
+
+            Appointment appointment = new Appointment();
+
+            System.out.println("Enter Appointment Id");
+            int id = input.nextInt();
+            appointment.setId(id);
+            input.nextLine();
+
+            System.out.println("Enter Doctor's id");
+            int doctorsId = input.nextInt();
+            appointment.setDoctor_id(doctorsId);
+            input.nextLine();
+
+            System.out.println("Enter Patient's id");
+            int patientId = input.nextInt();
+            appointment.setPatient_id(patientId);
+            input.nextLine();
+
+            System.out.println("Enter the date");
+            String date = input.nextLine();
+            appointment.setDate_time(date);
+
+            appointments.add(appointment);
+
+            System.out.println("Appointment has added!");
+
+            System.out.println("Need to add another appointment?");
+            System.out.println("(1) Yes");
+            System.out.println("(2) No");
+
+            int answer = input.nextInt();
+
+            if (answer != 1) {
+                addStatus = false;
+            } else {
+                addStatus = true;
+            }
+        }
+        appointments.stream().forEach(System.out::println);
     }
 }
