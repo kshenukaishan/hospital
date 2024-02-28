@@ -45,11 +45,16 @@ public class AppointmentMenu {
     }
 
     private static void viewAllAppointments(List<Appointment> appointments) {
-        System.out.println("View all appointment");
+        appointments.stream().forEach(System.out::println);
     }
 
     private static void deleteAppointment(List<Appointment> appointments, Scanner input) {
-        System.out.println("Delete appointment");
+        System.out.println("Enter the appointment ID");
+        int id = input.nextInt();
+        appointments.stream().filter(appointment -> appointment.getId() != id).findFirst();
+        Appointment appointment = appointments.get(id - 1);
+        appointments.remove(appointment);
+        System.out.println("Appointment has deleted!");
     }
 
     private static void updateAppointment(List<Appointment> appointments, Scanner input) {
