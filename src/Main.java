@@ -1,7 +1,7 @@
 import models.Appointment;
 import models.Doctor;
 import models.Patient;
-import sections.MainMenu;
+import sections.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,15 +33,19 @@ public class Main {
             switch (selectedInput){
                 case 0:
                     System.out.println("You are in Patients Section");
+                    PatientMenu.patientSection(patients, input);
                     break;
                 case 1:
                     System.out.println("You are in Doctors Section");
+                    DoctorsMenu.doctorSection(doctors, input);
                     break;
                 case 2:
                     System.out.println("You are in Appointments Section");
+                    AppointmentMenu.appointmentSection(appointments, input);
                     break;
                 case 3:
                     System.out.println("View All Appointments by Doctors ID");
+                    AppointmentByDoctorSection.viewAppointmentsByDoctorId(appointments, input);
                     break;
                 case 4:
                     System.out.println("Exit");
@@ -49,6 +53,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }
