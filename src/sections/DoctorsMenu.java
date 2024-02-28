@@ -50,7 +50,12 @@ public class DoctorsMenu {
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
-        System.out.println("Delete doctor");
+        System.out.println("Enter the Doctor's ID");
+        int id = input.nextInt();
+        doctors.stream().filter(doctor -> doctor.getId() != id).forEach(System.out::println);
+        Doctor doctor = doctors.get(id - 1);
+        doctors.remove(doctor);
+        System.out.println("Doctor has deleted!");
     }
 
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
