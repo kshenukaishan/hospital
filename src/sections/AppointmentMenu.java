@@ -58,7 +58,33 @@ public class AppointmentMenu {
     }
 
     private static void updateAppointment(List<Appointment> appointments, Scanner input) {
-        System.out.println("Update appointment");
+        System.out.println("Enter Appointment ID for update");
+        int id = input.nextInt();
+        Appointment appointmentUpdate = appointments.get(id);
+
+        boolean updateStatus = true;
+
+        while(updateStatus){
+
+            System.out.println("Enter new DoctorId");
+            int newDoctorId = input.nextInt();
+            appointmentUpdate.setDoctor_id(newDoctorId);
+            input.nextLine();
+
+            System.out.println("Enter new PatientId");
+            int newPatientId = input.nextInt();
+            appointmentUpdate.setPatient_id(newPatientId);
+            input.nextLine();
+
+            System.out.println("Enter new date-time");
+            String newDateTime = input.nextLine();
+            appointmentUpdate.setDate_time(newDateTime);
+            input.nextLine();
+
+            System.out.println("Appointment has updated");
+            updateStatus = false;
+        }
+        appointments.stream().forEach(System.out::println);
     }
 
     private static void findAppointmentById(List<Appointment> appointments, Scanner input) {
