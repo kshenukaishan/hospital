@@ -3,6 +3,7 @@ package sections;
 import models.Doctor;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class DoctorsMenu {
@@ -83,7 +84,10 @@ public class DoctorsMenu {
     }
 
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
-        System.out.println("Find by id");
+        System.out.println("Enter the Doctor ID to display");
+        int id = input.nextInt();
+        Optional<Doctor> doctorFind = doctors.stream().filter(doctor -> doctor.getId() == id).findFirst();
+        System.out.println(doctorFind);
     }
 
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
