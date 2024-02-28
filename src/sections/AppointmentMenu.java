@@ -3,6 +3,7 @@ package sections;
 import models.Appointment;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class AppointmentMenu {
@@ -88,7 +89,10 @@ public class AppointmentMenu {
     }
 
     private static void findAppointmentById(List<Appointment> appointments, Scanner input) {
-        System.out.println("Find appointment by id");
+        System.out.println("Enter Appointment Id to find");
+        int id = input.nextInt();
+        Optional<Appointment> appointmentToFind = appointments.stream().filter(appointment -> appointment.getId() == id).findFirst();
+        System.out.println(appointmentToFind);
     }
 
     private static void addAppointment(List<Appointment> appointments, Scanner input) {
