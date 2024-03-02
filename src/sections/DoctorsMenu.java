@@ -62,19 +62,19 @@ public class DoctorsMenu {
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
         System.out.println("Enter doctor ID for Updating!");
         int id = input.nextInt();
-        Doctor updatedDoctor = doctors.get(id - 1);
+        Doctor doctor = doctors.get(id - 1);
 
         boolean updateStatus = true;
 
         while(updateStatus){
             System.out.println("Enter new Name");
             String newName = input.nextLine();
-            updatedDoctor.setDoctor_name(newName);
+            doctor.setDoctor_name(newName);
             input.nextLine();
 
             System.out.println("Enter new Specialty");
             String newSpecialty = input.nextLine();
-            updatedDoctor.setSpecialty(newSpecialty);
+            doctor.setSpecialty(newSpecialty);
 
             System.out.println("Doctor updated successfully!");
 
