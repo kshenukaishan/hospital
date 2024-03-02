@@ -41,7 +41,6 @@ public class PatientMenu {
                     return;
             }
         }
-
     }
 
     private static void viewAllPatients(List<Patient> patients) {
@@ -130,5 +129,4 @@ public class PatientMenu {
         }
         patients.stream().forEach(System.out::println);
     }
-
 }

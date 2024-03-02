@@ -19,6 +19,11 @@ public class DoctorsMenu {
         doctorsMenuItems[4] = "(5) View All Doctors";
         doctorsMenuItems[5] = "(6) Exit";
 
+        subMenuSection(doctors, input, doctorsMenuItems);
+
+    }
+
+    private static void subMenuSection(List<Doctor> doctors, Scanner input, String[] doctorsMenuItems) {
         while(true){
 
             int selectedMenuItem = MainMenu.printMenu(doctorsMenuItems, input);
@@ -43,7 +48,6 @@ public class DoctorsMenu {
                     return;
             }
         }
-
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
