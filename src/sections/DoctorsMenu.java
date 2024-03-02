@@ -65,7 +65,6 @@ public class DoctorsMenu {
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
         new DoctorDao().findById(doctors, input);
     }
-
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
         new DoctorDao().add(doctors, input);
     }
