@@ -69,7 +69,7 @@ public class DoctorsMenu {
         while(updateStatus){
             System.out.println("Enter new Name");
             String newName = input.nextLine();
-            updatedDoctor.setName(newName);
+            updatedDoctor.setDoctor_name(newName);
             input.nextLine();
 
             System.out.println("Enter new Specialty");
@@ -103,7 +103,7 @@ public class DoctorsMenu {
 
             System.out.println("Enter Doctor's name");
             String name = input.nextLine();
-            doctor.setName(name);
+            doctor.setDoctor_name(name);
 
             System.out.println("Enter the specialty");
             String specialty = input.nextLine();

@@ -3,15 +3,15 @@ package models;
 public class Doctor {
 
     private int id;
-    private String name;
+    private String doctor_name;
     private String specialty;
 
     public Doctor() {
     }
 
-    public Doctor(int id, String name, String specialty) {
+    public Doctor(int id, String doctor_name, String specialty) {
         this.id = id;
-        this.name = name;
+        this.doctor_name = doctor_name;
         this.specialty = specialty;
     }
 
@@ -23,12 +23,12 @@ public class Doctor {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDoctor_name() {
+        return doctor_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDoctor_name(String doctor_name) {
+        this.doctor_name = doctor_name;
     }
 
     public String getSpecialty() {
@@ -43,7 +43,7 @@ public class Doctor {
     public String toString() {
         return "Doctor{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", doctor_name='" + doctor_name + '\'' +
                 ", specialty='" + specialty + '\'' +
                 '}';
     }
