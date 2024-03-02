@@ -10,24 +10,24 @@ import java.util.Scanner;
 public class PatientDao implements CrudDao<Patient> {
 
     @Override
-    public void viewAll(List<Patient> patients) {
-        patients.forEach(System.out::println);
+    public void viewAll(List<Patient> list) {
+        list.forEach(System.out::println);
     }
 
     @Override
-    public void deletePatient(List<Patient> patients, Scanner input) {
+    public void delete(List<Patient> list, Scanner input) {
         System.out.println("Enter Patient id in order to Delete!");
         int id = input.nextInt();
-        patients.stream().filter(patient -> patient.getId() == id).findFirst();
+        list.stream().filter(patient -> patient.getId() == id).findFirst();
         System.out.println("Patient has deleted!");
-        patients.stream().forEach(System.out::println);
+        list.stream().forEach(System.out::println);
     }
 
     @Override
-    public void updatePatient(List<Patient> patients, Scanner input) {
+    public void update(List<Patient> list, Scanner input) {
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
-        Patient patientToUpdate = patients.get(id - 1);
+        Patient patientToUpdate = list.get(id - 1);
 
         boolean updateStatus = true;
 
@@ -49,19 +49,19 @@ public class PatientDao implements CrudDao<Patient> {
             System.out.println("Patient updated successfully!");
             updateStatus = false;
         }
-        patients.stream().forEach(System.out::println);
+        list.stream().forEach(System.out::println);
     }
 
     @Override
-    public void findPatientById(List<Patient> patients, Scanner input) {
+    public void findById(List<Patient> list, Scanner input) {
         System.out.println("Enter Patient id in order to Display!");
         int id = input.nextInt();
-        Optional<Patient> patientFind = patients.stream().filter(patient -> patient.getId() == id).findFirst();
+        Optional<Patient> patientFind = list.stream().filter(patient -> patient.getId() == id).findFirst();
         System.out.println(patientFind);
     }
 
     @Override
-    public void addPatients(List<Patient> patients, Scanner input) {
+    public void add(List<Patient> list, Scanner input) {
         boolean addStatus = true;
         while (addStatus){
 
@@ -83,7 +83,7 @@ public class PatientDao implements CrudDao<Patient> {
             System.out.println("Enter patient address");
             String address = input.nextLine();
             patient.setAddress(address);
-            patients.add(patient);
+            list.add(patient);
 
             System.out.println("Patient added successfully!");
 
@@ -98,6 +98,6 @@ public class PatientDao implements CrudDao<Patient> {
                 addStatus = true;
             }
         }
-        patients.stream().forEach(System.out::println);
+        list.stream().forEach(System.out::println);
     }
 }

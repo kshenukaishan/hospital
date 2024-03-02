@@ -52,18 +52,18 @@ public class PatientMenu {
     }
 
     private static void deletePatient(List<Patient> patients, Scanner input) {
-        new PatientDao().deletePatient(patients, input);
+        new PatientDao().delete(patients, input);
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
-        new PatientDao().updatePatient(patients, input);
+        new PatientDao().update(patients, input);
     }
 
     private static void findPatientById(List<Patient> patients, Scanner input) {
-        new PatientDao().findPatientById(patients, input);
+        new PatientDao().findById(patients, input);
     }
 
     private static void addPatients(List<Patient> patients, Scanner input) {
-        new PatientDao().addPatients(patients, input);
+        new PatientDao().add(patients, input);
     }
 }
