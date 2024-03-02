@@ -18,6 +18,10 @@ public class PatientMenu {
         patientsMenuItems[4] = "(5) View All Patients";
         patientsMenuItems[5] = "(6) Exit";
 
+        subMenuSection(patients, input, patientsMenuItems);
+    }
+
+    private static void subMenuSection(List<Patient> patients, Scanner input, String[] patientsMenuItems) {
         while(true){
             int selectedInput = MainMenu.printMenu(patientsMenuItems, input);
 
