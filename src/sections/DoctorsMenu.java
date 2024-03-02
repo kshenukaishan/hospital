@@ -1,5 +1,6 @@
 package sections;
 
+import dao.impl.DoctorDao;
 import models.Doctor;
 
 import java.util.List;
@@ -51,7 +52,7 @@ public class DoctorsMenu {
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
-        doctors.stream().forEach(System.out::println);
+        new DoctorDao().viewAll(doctors);
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
