@@ -1,7 +1,5 @@
 package dao;
 
-import models.Patient;
-
 import java.util.List;
 import java.util.Scanner;
 
