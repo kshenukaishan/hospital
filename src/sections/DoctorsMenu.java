@@ -56,80 +56,18 @@ public class DoctorsMenu {
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
-        System.out.println("Enter the Doctor's ID");
-        int id = input.nextInt();
-        doctors.stream().filter(doctor -> doctor.getId() != id).forEach(System.out::println);
-        Doctor doctor = doctors.get(id - 1);
-        doctors.remove(doctor);
-        System.out.println("Doctor has deleted!");
+        new DoctorDao().delete(doctors, input);
     }
 
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
-        System.out.println("Enter doctor ID for Updating!");
-        int id = input.nextInt();
-        Doctor doctor = doctors.get(id - 1);
-
-        boolean updateStatus = true;
-
-        while(updateStatus){
-            System.out.println("Enter new Name");
-            String newName = input.nextLine();
-            doctor.setDoctor_name(newName);
-            input.nextLine();
-
-            System.out.println("Enter new Specialty");
-            String newSpecialty = input.nextLine();
-            doctor.setSpecialty(newSpecialty);
-
-            System.out.println("Doctor updated successfully!");
-
-            updateStatus = false;
-        }
-        doctors.stream().forEach(System.out::println);
+        new DoctorDao().update(doctors, input);
     }
 
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
-        System.out.println("Enter the Doctor ID to display");
-        int id = input.nextInt();
-        Optional<Doctor> doctorFind = doctors.stream().filter(doctor -> doctor.getId() == id).findFirst();
-        System.out.println(doctorFind);
+        new DoctorDao().findById(doctors, input);
     }
 
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
-        boolean addStatus = true;
-
-        while(addStatus){
-
-            Doctor doctor = new Doctor();
-            System.out.println("Enter Doctor's ID");
-            int id = input.nextInt();
-            doctor.setId(id);
-            input.nextLine();
-
-            System.out.println("Enter Doctor's name");
-            String name = input.nextLine();
-            doctor.setDoctor_name(name);
-
-            System.out.println("Enter the specialty");
-            String specialty = input.nextLine();
-            doctor.setSpecialty(specialty);
-            doctors.add(doctor);
-
-            System.out.println("Doctor has added successfully!");
-
-            System.out.println("Need to add another Doctor?");
-            System.out.println("(1) Yes");
-            System.out.println("(2) No");
-
-            int answer = input.nextInt();
-
-            if (answer != 1) {
-                addStatus = false;
-            } else {
-                addStatus = true;
-            }
-        }
-        doctors.stream().forEach(System.out::println);
+        new DoctorDao().add(doctors, input);
     }
-
 }
