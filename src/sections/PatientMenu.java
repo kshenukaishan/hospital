@@ -66,7 +66,7 @@ public class PatientMenu {
         while (updateStatus){
             System.out.println("Enter new Name");
             String newName = input.nextLine();
-            patientToUpdate.setName(newName);
+            patientToUpdate.setPatient_name(newName);
             input.nextLine();
 
             System.out.println("Enter new Age");
@@ -103,7 +103,7 @@ public class PatientMenu {
 
             System.out.println("Enter patient name");
             String name = input.nextLine();
-            patient.setName(name);
+            patient.setPatient_name(name);
 
             System.out.println("Enter patient age");
             int age = input.nextInt();

@@ -3,16 +3,16 @@ package models;
 public class Patient {
 
     private int id;
-    private String name;
+    private String patient_name;
     private int age;
     private String address;
 
     public Patient() {
     }
 
-    public Patient(int id, String name, int age, String address) {
+    public Patient(int id, String patient_name, int age, String address) {
         this.id = id;
-        this.name = name;
+        this.patient_name = patient_name;
         this.age = age;
         this.address = address;
     }
@@ -25,12 +25,12 @@ public class Patient {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPatient_name() {
+        return patient_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPatient_name(String patient_name) {
+        this.patient_name = patient_name;
     }
 
     public int getAge() {
@@ -53,7 +53,7 @@ public class Patient {
     public String toString() {
         return "Patient{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", patient_name='" + patient_name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
                 '}';
