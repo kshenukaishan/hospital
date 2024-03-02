@@ -1,9 +1,9 @@
 package sections;
 
+import dao.impl.AppointmentDao;
 import models.Appointment;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class AppointmentMenu {
@@ -46,97 +46,22 @@ public class AppointmentMenu {
     }
 
     private static void viewAllAppointments(List<Appointment> appointments) {
-        appointments.stream().forEach(System.out::println);
+        new AppointmentDao().viewAll(appointments);
     }
 
     private static void deleteAppointment(List<Appointment> appointments, Scanner input) {
-        System.out.println("Enter the appointment ID");
-        int id = input.nextInt();
-        appointments.stream().filter(appointment -> appointment.getId() != id).findFirst();
-        Appointment appointment = appointments.get(id - 1);
-        appointments.remove(appointment);
-        System.out.println("Appointment has deleted!");
+       new AppointmentDao().delete(appointments, input);
     }
 
     private static void updateAppointment(List<Appointment> appointments, Scanner input) {
-        System.out.println("Enter Appointment ID for update");
-        int id = input.nextInt();
-        Appointment appointmentUpdate = appointments.get(id);
-
-        boolean updateStatus = true;
-
-        while(updateStatus){
-
-            System.out.println("Enter new DoctorId");
-            int newDoctorId = input.nextInt();
-            appointmentUpdate.setDoctor_id(newDoctorId);
-            input.nextLine();
-
-            System.out.println("Enter new PatientId");
-            int newPatientId = input.nextInt();
-            appointmentUpdate.setPatient_id(newPatientId);
-            input.nextLine();
-
-            System.out.println("Enter new date-time");
-            String newDateTime = input.nextLine();
-            appointmentUpdate.setDate_time(newDateTime);
-            input.nextLine();
-
-            System.out.println("Appointment has updated");
-            updateStatus = false;
-        }
-        appointments.stream().forEach(System.out::println);
+        new AppointmentDao().update(appointments, input);
     }
 
     private static void findAppointmentById(List<Appointment> appointments, Scanner input) {
-        System.out.println("Enter Appointment Id to find");
-        int id = input.nextInt();
-        Optional<Appointment> appointmentToFind = appointments.stream().filter(appointment -> appointment.getId() == id).findFirst();
-        System.out.println(appointmentToFind);
+       new AppointmentDao().findById(appointments, input);
     }
 
     private static void addAppointment(List<Appointment> appointments, Scanner input) {
-        boolean addStatus = true;
-
-        while(addStatus){
-
-            Appointment appointment = new Appointment();
-
-            System.out.println("Enter Appointment Id");
-            int id = input.nextInt();
-            appointment.setId(id);
-            input.nextLine();
-
-            System.out.println("Enter Doctor's id");
-            int doctorsId = input.nextInt();
-            appointment.setDoctor_id(doctorsId);
-            input.nextLine();
-
-            System.out.println("Enter Patient's id");
-            int patientId = input.nextInt();
-            appointment.setPatient_id(patientId);
-            input.nextLine();
-
-            System.out.println("Enter the date");
-            String date = input.nextLine();
-            appointment.setDate_time(date);
-
-            appointments.add(appointment);
-
-            System.out.println("Appointment has added!");
-
-            System.out.println("Need to add another appointment?");
-            System.out.println("(1) Yes");
-            System.out.println("(2) No");
-
-            int answer = input.nextInt();
-
-            if (answer != 1) {
-                addStatus = false;
-            } else {
-                addStatus = true;
-            }
-        }
-        appointments.stream().forEach(System.out::println);
+        new AppointmentDao().add(appointments, input);
     }
 }
