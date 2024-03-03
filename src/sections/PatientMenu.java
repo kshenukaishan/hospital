@@ -1,5 +1,6 @@
 package sections;
 
+import bo.BoFactory;
 import bo.custom.PatientBo;
 import dao.DaoFactory;
 import dao.custom.PatientDao;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class PatientMenu {
 
-
+    private static PatientBo patientBo = BoFactory.getBo(BoFactory.BoType.PATIENT);
 
     public static void patientSection(List<Patient> patients, Scanner input){
 
@@ -52,22 +53,22 @@ public class PatientMenu {
     }
 
     private static void viewAllPatients(List<Patient> patients) {
-        patientDao.viewAll(patients);
+        patientBo.viewAll(patients);
     }
 
     private static void deletePatient(List<Patient> patients, Scanner input) {
-        patientDao.delete(patients, input);
+        patientBo.delete(patients, input);
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
-        patientDao.update(patients, input);
+        patientBo.update(patients, input);
     }
 
     private static void findPatientById(List<Patient> patients, Scanner input) {
-        patientDao.findById(patients, input);
+        patientBo.findById(patients, input);
     }
 
     private static void addPatients(List<Patient> patients, Scanner input) {
-        patientDao.add(patients, input);
+        patientBo.add(patients, input);
     }
 }
