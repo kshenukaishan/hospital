@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.PatientDao;
 import dao.custom.impl.PatientDaoImpl;
 import models.Patient;
 
@@ -7,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PatientMenu {
+
+    private static PatientDao patientDao = (PatientDao) DaoFactory.getDao(DaoFactory.DaoType.PATIENT);
 
     public static void patientSection(List<Patient> patients, Scanner input){
 
@@ -48,22 +52,22 @@ public class PatientMenu {
     }
 
     private static void viewAllPatients(List<Patient> patients) {
-        new PatientDaoImpl().viewAll(patients);
+        patientDao.viewAll(patients);
     }
 
     private static void deletePatient(List<Patient> patients, Scanner input) {
-        new PatientDaoImpl().delete(patients, input);
+        patientDao.delete(patients, input);
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
-        new PatientDaoImpl().update(patients, input);
+        patientDao.update(patients, input);
     }
 
     private static void findPatientById(List<Patient> patients, Scanner input) {
-        new PatientDaoImpl().findById(patients, input);
+        patientDao.findById(patients, input);
     }
 
     private static void addPatients(List<Patient> patients, Scanner input) {
-        new PatientDaoImpl().add(patients, input);
+        patientDao.add(patients, input);
     }
 }

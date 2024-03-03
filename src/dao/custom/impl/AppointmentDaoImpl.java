@@ -1,6 +1,5 @@
 package dao.custom.impl;
 
-import dao.CrudDao;
 import dao.custom.AppointmentDao;
 import models.Appointment;
 
