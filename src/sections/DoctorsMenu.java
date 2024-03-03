@@ -1,5 +1,7 @@
 package sections;
 
+import bo.BoFactory;
+import bo.custom.DoctorBo;
 import dao.DaoFactory;
 import dao.custom.DoctorDao;
 import models.Doctor;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 
 public class DoctorsMenu {
 
-    private static DoctorDao doctorDao = DaoFactory.getDao(DaoFactory.DaoType.DOCTOR);
+    private static DoctorBo doctorBo = BoFactory.getBo(BoFactory.BoType.DOCTOR);
 
     public static void doctorSection(List<Doctor> doctors, Scanner input){
 
@@ -54,21 +56,21 @@ public class DoctorsMenu {
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
-        doctorDao.viewAll(doctors);
+        doctorBo.viewAll(doctors);
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
-        doctorDao.delete(doctors, input);
+        doctorBo.delete(doctors, input);
     }
 
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
-        doctorDao.update(doctors, input);
+        doctorBo.update(doctors, input);
     }
 
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
-        doctorDao.findById(doctors, input);
+        doctorBo.findById(doctors, input);
     }
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
-        doctorDao.add(doctors, input);
+        doctorBo.add(doctors, input);
     }
 }
