@@ -1,5 +1,6 @@
 package sections;
 
+import bo.custom.PatientBo;
 import dao.DaoFactory;
 import dao.custom.PatientDao;
 import models.Patient;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class PatientMenu {
 
-    private static PatientDao patientDao = DaoFactory.getDao(DaoFactory.DaoType.PATIENT);
+
 
     public static void patientSection(List<Patient> patients, Scanner input){
 
