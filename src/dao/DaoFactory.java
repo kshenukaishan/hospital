@@ -1,8 +1,8 @@
 package dao;
 
-import dao.impl.AppointmentDao;
-import dao.impl.DoctorDao;
-import dao.impl.PatientDao;
+import dao.custom.impl.AppointmentDao;
+import dao.custom.impl.DoctorDao;
+import dao.custom.impl.PatientDao;
 
 public class DaoFactory {
 

@@ -1,6 +1,6 @@
 package sections;
 
-import dao.impl.AppointmentDao;
+import dao.custom.impl.AppointmentDao;
 import models.Appointment;
 
 import java.util.List;
