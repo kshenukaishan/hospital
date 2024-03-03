@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.AppointmentDao;
 import dao.custom.impl.AppointmentDaoImpl;
 import models.Appointment;
 
@@ -7,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AppointmentMenu {
+
+    private static AppointmentDao appointmentDao = DaoFactory.getDao(DaoFactory.DaoType.APPOINTMENT);
 
     public static void appointmentSection(List<Appointment> appointments, Scanner input){
 
@@ -46,22 +50,22 @@ public class AppointmentMenu {
     }
 
     private static void viewAllAppointments(List<Appointment> appointments) {
-        new AppointmentDaoImpl().viewAll(appointments);
+        appointmentDao.viewAll(appointments);
     }
 
     private static void deleteAppointment(List<Appointment> appointments, Scanner input) {
-       new AppointmentDaoImpl().delete(appointments, input);
+        appointmentDao.delete(appointments, input);
     }
 
     private static void updateAppointment(List<Appointment> appointments, Scanner input) {
-        new AppointmentDaoImpl().update(appointments, input);
+        appointmentDao.update(appointments, input);
     }
 
     private static void findAppointmentById(List<Appointment> appointments, Scanner input) {
-       new AppointmentDaoImpl().findById(appointments, input);
+        appointmentDao.findById(appointments, input);
     }
 
     private static void addAppointment(List<Appointment> appointments, Scanner input) {
-        new AppointmentDaoImpl().add(appointments, input);
+        appointmentDao.add(appointments, input);
     }
 }
