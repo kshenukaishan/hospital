@@ -1,8 +1,8 @@
 package dao;
 
-import dao.custom.impl.AppointmentDao;
-import dao.custom.impl.DoctorDao;
-import dao.custom.impl.PatientDao;
+import dao.custom.impl.AppointmentDaoImpl;
+import dao.custom.impl.DoctorDaoImpl;
+import dao.custom.impl.PatientDaoImpl;
 
 public class DaoFactory {
 
@@ -19,11 +19,11 @@ public class DaoFactory {
     public static <T> T getDao(DaoType daoType){
         switch (daoType){
             case PATIENT:
-                return (T) new PatientDao();
+                return (T) new PatientDaoImpl();
             case DOCTOR:
-                return (T) new DoctorDao();
+                return (T) new DoctorDaoImpl();
             case APPOINTMENT:
-                return (T) new AppointmentDao();
+                return (T) new AppointmentDaoImpl();
             default:
                 return null;
         }

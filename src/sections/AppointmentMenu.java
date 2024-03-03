@@ -1,6 +1,6 @@
 package sections;
 
-import dao.custom.impl.AppointmentDao;
+import dao.custom.impl.AppointmentDaoImpl;
 import models.Appointment;
 
 import java.util.List;
@@ -46,22 +46,22 @@ public class AppointmentMenu {
     }
 
     private static void viewAllAppointments(List<Appointment> appointments) {
-        new AppointmentDao().viewAll(appointments);
+        new AppointmentDaoImpl().viewAll(appointments);
     }
 
     private static void deleteAppointment(List<Appointment> appointments, Scanner input) {
-       new AppointmentDao().delete(appointments, input);
+       new AppointmentDaoImpl().delete(appointments, input);
     }
 
     private static void updateAppointment(List<Appointment> appointments, Scanner input) {
-        new AppointmentDao().update(appointments, input);
+        new AppointmentDaoImpl().update(appointments, input);
     }
 
     private static void findAppointmentById(List<Appointment> appointments, Scanner input) {
-       new AppointmentDao().findById(appointments, input);
+       new AppointmentDaoImpl().findById(appointments, input);
     }
 
     private static void addAppointment(List<Appointment> appointments, Scanner input) {
-        new AppointmentDao().add(appointments, input);
+        new AppointmentDaoImpl().add(appointments, input);
     }
 }

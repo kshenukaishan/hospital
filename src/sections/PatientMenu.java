@@ -1,6 +1,6 @@
 package sections;
 
-import dao.custom.impl.PatientDao;
+import dao.custom.impl.PatientDaoImpl;
 import models.Patient;
 
 import java.util.List;
@@ -48,22 +48,22 @@ public class PatientMenu {
     }
 
     private static void viewAllPatients(List<Patient> patients) {
-        new PatientDao().viewAll(patients);
+        new PatientDaoImpl().viewAll(patients);
     }
 
     private static void deletePatient(List<Patient> patients, Scanner input) {
-        new PatientDao().delete(patients, input);
+        new PatientDaoImpl().delete(patients, input);
     }
 
     private static void updatePatient(List<Patient> patients, Scanner input) {
-        new PatientDao().update(patients, input);
+        new PatientDaoImpl().update(patients, input);
     }
 
     private static void findPatientById(List<Patient> patients, Scanner input) {
-        new PatientDao().findById(patients, input);
+        new PatientDaoImpl().findById(patients, input);
     }
 
     private static void addPatients(List<Patient> patients, Scanner input) {
-        new PatientDao().add(patients, input);
+        new PatientDaoImpl().add(patients, input);
     }
 }

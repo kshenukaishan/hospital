@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class DoctorDao implements CrudDao<Doctor> {
+public class DoctorDaoImpl implements CrudDao<Doctor> {
 
     @Override
     public void viewAll(List<Doctor> list) {

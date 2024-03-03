@@ -1,6 +1,6 @@
 package sections;
 
-import dao.custom.impl.DoctorDao;
+import dao.custom.impl.DoctorDaoImpl;
 import models.Doctor;
 
 import java.util.List;
@@ -51,21 +51,21 @@ public class DoctorsMenu {
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
-        new DoctorDao().viewAll(doctors);
+        new DoctorDaoImpl().viewAll(doctors);
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
-        new DoctorDao().delete(doctors, input);
+        new DoctorDaoImpl().delete(doctors, input);
     }
 
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
-        new DoctorDao().update(doctors, input);
+        new DoctorDaoImpl().update(doctors, input);
     }
 
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
-        new DoctorDao().findById(doctors, input);
+        new DoctorDaoImpl().findById(doctors, input);
     }
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
-        new DoctorDao().add(doctors, input);
+        new DoctorDaoImpl().add(doctors, input);
     }
 }

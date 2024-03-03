@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class AppointmentDao implements CrudDao<Appointment> {
+public class AppointmentDaoImpl implements CrudDao<Appointment> {
 
     @Override
     public void viewAll(List<Appointment> list) {
