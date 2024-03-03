@@ -2,7 +2,6 @@ package sections;
 
 import dao.DaoFactory;
 import dao.custom.PatientDao;
-import dao.custom.impl.PatientDaoImpl;
 import models.Patient;
 
 import java.util.List;
