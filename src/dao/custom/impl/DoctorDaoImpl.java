@@ -1,13 +1,14 @@
 package dao.custom.impl;
 
 import dao.CrudDao;
+import dao.custom.DoctorDao;
 import models.Doctor;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class DoctorDaoImpl implements CrudDao<Doctor> {
+public class DoctorDaoImpl implements DoctorDao {
 
     @Override
     public void viewAll(List<Doctor> list) {
