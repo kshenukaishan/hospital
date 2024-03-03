@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.DoctorDao;
 import dao.custom.impl.DoctorDaoImpl;
 import models.Doctor;
 
@@ -7,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DoctorsMenu {
+
+    private static DoctorDao doctorDao = DaoFactory.getDao(DaoFactory.DaoType.DOCTOR);
 
     public static void doctorSection(List<Doctor> doctors, Scanner input){
 
@@ -51,21 +55,21 @@ public class DoctorsMenu {
     }
 
     private static void viewAllDoctors(List<Doctor> doctors) {
-        new DoctorDaoImpl().viewAll(doctors);
+        doctorDao.viewAll(doctors);
     }
 
     private static void deleteDoctor(List<Doctor> doctors, Scanner input) {
-        new DoctorDaoImpl().delete(doctors, input);
+        doctorDao.delete(doctors, input);
     }
 
     private static void updateDoctor(List<Doctor> doctors, Scanner input) {
-        new DoctorDaoImpl().update(doctors, input);
+        doctorDao.update(doctors, input);
     }
 
     private static void findDoctorById(List<Doctor> doctors, Scanner input) {
-        new DoctorDaoImpl().findById(doctors, input);
+        doctorDao.findById(doctors, input);
     }
     private static void addDoctors(List<Doctor> doctors, Scanner input) {
-        new DoctorDaoImpl().add(doctors, input);
+        doctorDao.add(doctors, input);
     }
 }
